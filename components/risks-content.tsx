@@ -137,7 +137,7 @@ function getStatusBadge(estado: string) {
   }
 }
 
-export  function RisksContent() {
+export function RisksContent() {
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -202,15 +202,12 @@ export  function RisksContent() {
                   />
                   <Scatter
                     dataKey="y"
-                    fill={(entry: any) => {
-                      switch (entry.riesgo) {
-                        case "alto":
-                          return "#d9534f"
-                        case "medio":
-                          return "#f0ad4e"
-                        default:
-                          return "#009fe3"
-                      }
+                    shape={(props: any) => {
+                      const { cx, cy, payload } = props;
+                      let fill = "#009fe3";
+                      if (payload.riesgo === "alto") fill = "#d9534f";
+                      else if (payload.riesgo === "medio") fill = "#f0ad4e";
+                      return <circle cx={cx} cy={cy} r={6} fill={fill} />;
                     }}
                   />
                 </ScatterChart>
