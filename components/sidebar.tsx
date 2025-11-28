@@ -16,6 +16,7 @@ import {
   Lightbulb,
   Menu,
   X,
+  Users,
 } from "lucide-react"
 
 const navigation = [
@@ -27,6 +28,7 @@ const navigation = [
   { name: "Riesgos y Anomalías", href: "/risks", icon: AlertTriangle },
   { name: "Reportes", href: "/reports", icon: FileText },
   { name: "Recomendaciones IA", href: "/recommendations", icon: Lightbulb },
+  { name: "Gestión de Usuarios", href: "/users", icon: Users }, // Added user management as last menu item
 ]
 
 export function Sidebar() {

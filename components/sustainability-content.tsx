@@ -25,6 +25,9 @@ const sustainabilityKPIs = {
   consumoEnergetico: { value: 18420, change: 5.8, target: 17000, unit: "kWh" },
   renovables: { value: 35.2, change: 8.4, target: 50, unit: "%" },
   reciclaje: { value: 864, change: 12.1, target: 1000, unit: "kg" },
+  capacitacion: { value:100, change: 10.0, target: 500, unit: "capacitaciones" },
+  laboral: { value:85, change: 10.0, target: 100, unit: "%" },
+  inversion: { value:50, change: 10.0, target: 70, unit: "%" },
 }
 
 // Time series data for sustainability metrics
@@ -152,6 +155,37 @@ export function SustainabilityContent() {
           icon={<Recycle className="w-5 h-5 text-white" />}
           color="bg-audit-orange"
         />
+        <SustainabilityKPICard
+          title="Capacitación en sostenibilidad"
+          value={sustainabilityKPIs.capacitacion.value}
+          unit={sustainabilityKPIs.capacitacion.unit}
+          change={sustainabilityKPIs.capacitacion.change}
+          target={sustainabilityKPIs.capacitacion.target}
+          icon={<Leaf className="w-5 h-5 text-white" />}
+          color="bg-audit-yellow"
+        />
+
+         <SustainabilityKPICard
+          title="Clima laboral sostenible"
+          value={sustainabilityKPIs.laboral.value}
+          unit={sustainabilityKPIs.laboral.unit}
+          change={sustainabilityKPIs.laboral.change}
+          target={sustainabilityKPIs.laboral.target}
+          icon={<Leaf className="w-5 h-5 text-white" />}
+          color="bg-audit-yellow"
+        />
+
+         <SustainabilityKPICard
+          title="Inversión en programas sociales"
+          value={sustainabilityKPIs.inversion.value}
+          unit={sustainabilityKPIs.inversion.unit}
+          change={sustainabilityKPIs.inversion.change}
+          target={sustainabilityKPIs.inversion.target}
+          icon={<Leaf className="w-5 h-5 text-white" />}
+          color="bg-audit-yellow"
+        />
+
+        
       </div>
 
       {/* Charts Section */}

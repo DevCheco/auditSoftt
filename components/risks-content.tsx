@@ -137,7 +137,7 @@ function getStatusBadge(estado: string) {
   }
 }
 
-export function RisksContent() {
+export  function RisksContent() {
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -310,7 +310,7 @@ export function RisksContent() {
                     <td className="py-3 px-4 font-mono text-sm">{transaction.id}</td>
                     <td className="py-3 px-4 text-gray-900">{transaction.fecha}</td>
                     <td className="py-3 px-4 text-gray-900 max-w-xs truncate">{transaction.descripcion}</td>
-                    <td className="py-3 px-4 text-right font-medium">€{transaction.monto.toLocaleString()}</td>
+                    <td className="py-3 px-4 text-right font-medium">${transaction.monto.toLocaleString()}</td>
                     <td className="py-3 px-4 text-center">{getRiskBadge(transaction.riesgo)}</td>
                     <td className="py-3 px-4 text-gray-600">{transaction.categoria}</td>
                     <td className="py-3 px-4 text-center">{getStatusBadge(transaction.estado)}</td>

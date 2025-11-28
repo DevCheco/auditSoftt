@@ -9,7 +9,24 @@ import { Input } from "@/components/ui/input"
 import { Upload, FileText, CheckCircle, AlertCircle } from "lucide-react"
 
 
+type FileData = {
+  id: number;
+  name: string;
+  extension: string;
+  uploadedAt: string;
+  uploadedBy: string;
+};
 
+const filesMock: FileData[] = [
+  { id: 1, name: "Reporte_Financiero_Q1", extension: ".pdf", uploadedAt: "2025-09-10", uploadedBy: "Carlos" },
+  { id: 2, name: "Plan_Estrategico", extension: ".docx", uploadedAt: "2025-09-09", uploadedBy: "Ana" },
+  { id: 3, name: "Balance_General", extension: ".xlsx", uploadedAt: "2025-09-08", uploadedBy: "Luis" },
+  { id: 4, name: "Presentacion_Progreso", extension: ".pptx", uploadedAt: "2025-09-08", uploadedBy: "María" },
+  { id: 5, name: "Manual_Usuario", extension: ".pdf", uploadedAt: "2025-09-07", uploadedBy: "Andrés" },
+  { id: 6, name: "Contrato", extension: ".pdf", uploadedAt: "2025-09-06", uploadedBy: "Claudia" },
+  { id: 7, name: "Datos_Encuesta", extension: ".csv", uploadedAt: "2025-09-05", uploadedBy: "Juan" },
+  // ...puedes seguir agregando
+];
 // Sample data for the table
 const sampleData = [
   {
@@ -102,6 +119,16 @@ export function DataInputContent() {
       setUploadedFile(e.dataTransfer.files[0])
     }
   }
+
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  const indexOfLast = currentPage * itemsPerPage;
+  const indexOfFirst = indexOfLast - itemsPerPage;
+  const currentFiles = filesMock.slice(indexOfFirst, indexOfLast);
+
+  const totalPages = Math.ceil(filesMock.length / itemsPerPage);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -199,6 +226,54 @@ export function DataInputContent() {
           </CardContent>
         </Card>
       </div>
+
+
+<div className="bg-white shadow-md rounded-2xl p-6">
+      <h2 className="text-lg font-semibold text-gray-800 mb-4">Repositorio de Documentos</h2>
+      
+      <div className="overflow-x-auto">
+        <table className="min-w-full text-sm text-left border border-gray-200 rounded-lg">
+          <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
+            <tr>
+              <th className="px-4 py-3">Nombre</th>
+              <th className="px-4 py-3">Extensión</th>
+              <th className="px-4 py-3">Fecha</th>
+              <th className="px-4 py-3">Subido por</th>
+              <th className="px-4 py-3 text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200">
+            {currentFiles.map((file) => (
+              <tr key={file.id} className="hover:bg-gray-50">
+                <td className="px-4 py-3 font-medium text-gray-800">{file.name}</td>
+                <td className="px-4 py-3">{file.extension}</td>
+                <td className="px-4 py-3">{file.uploadedAt}</td>
+                <td className="px-4 py-3">{file.uploadedBy}</td>
+                <td className="px-4 py-3 text-center">
+                  <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                    Ver
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Paginación */}
+       <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-200">
+            <p className="text-sm text-audit-medium-gray">Mostrando 5 de 24 registros</p>
+            <div className="flex space-x-2">
+              <Button variant="outline" size="sm">
+                Anterior
+              </Button>
+              <Button variant="outline" size="sm">
+                Siguiente
+              </Button>
+            </div>
+          </div>
+    </div>
+
 
       {/* Data Preview Table */}
       <Card className="bg-white shadow-sm border-0">

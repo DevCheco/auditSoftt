@@ -14,7 +14,7 @@ const recommendations = [
       "Se detectó un incremento del 15% en gastos operativos. Revisar contratos de servicios y optimizar procesos.",
     categoria: "Financiero",
     prioridad: "alta",
-    impactoEstimado: "€12,000/mes",
+    impactoEstimado: "$12,000/mes",
     fechaCreacion: "2024-01-20",
     estado: "pendiente",
     acciones: [
@@ -29,7 +29,7 @@ const recommendations = [
     descripcion: "El consumo energético ha aumentado 8%. Considerar inversión en tecnologías más eficientes.",
     categoria: "Sostenibilidad",
     prioridad: "media",
-    impactoEstimado: "€8,500/año",
+    impactoEstimado: "$8,500/año",
     fechaCreacion: "2024-01-19",
     estado: "en_progreso",
     acciones: ["Auditoría energética completa", "Instalación de sistemas LED", "Optimización de sistemas HVAC"],
@@ -66,7 +66,7 @@ const recommendations = [
     descripcion: "Mejorar la rotación de cartera y reducir días de cobro para optimizar liquidez.",
     categoria: "Financiero",
     prioridad: "media",
-    impactoEstimado: "€25,000 liquidez",
+    impactoEstimado: "$25,000 liquidez",
     fechaCreacion: "2024-01-16",
     estado: "en_progreso",
     acciones: [

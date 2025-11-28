@@ -62,7 +62,7 @@ function KPICard({ title, value, change, icon, color }: KPICardProps) {
   )
 }
 
-export function DashboardContent() {
+export default function DashboardContent() {
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -80,14 +80,14 @@ export function DashboardContent() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <KPICard
           title="Ingresos Totales"
-          value="€168,000"
+          value="$168,000"
           change={5.9}
           icon={<DollarSign className="w-5 h-5 text-white" />}
           color="bg-audit-bright-blue"
         />
         <KPICard
           title="Gastos Totales"
-          value="€121,000"
+          value="$121,000"
           change={7.7}
           icon={<TrendingDown className="w-5 h-5 text-white" />}
           color="bg-audit-red"
@@ -159,15 +159,15 @@ export function DashboardContent() {
           <CardContent className="space-y-4">
             <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
               <span className="text-sm font-medium text-gray-600">Ingresos Promedio Mensual</span>
-              <span className="text-lg font-bold text-audit-bright-blue">€14,000</span>
+              <span className="text-lg font-bold text-audit-bright-blue">$14,000</span>
             </div>
             <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
               <span className="text-sm font-medium text-gray-600">Gastos Promedio Mensual</span>
-              <span className="text-lg font-bold text-audit-red">€10,083</span>
+              <span className="text-lg font-bold text-audit-red">$10,083</span>
             </div>
             <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
               <span className="text-sm font-medium text-gray-600">Utilidad Neta Anual</span>
-              <span className="text-lg font-bold text-audit-orange">€47,000</span>
+              <span className="text-lg font-bold text-audit-orange">$47,000</span>
             </div>
             <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
               <span className="text-sm font-medium text-gray-600">ROI Estimado</span>

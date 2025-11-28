@@ -8,9 +8,10 @@ import { TrendingUp, TrendingDown, Calculator, Percent } from "lucide-react"
 
 // Financial indicators data
 const financialRatios = {
+  Rentabilidad: { value: 28.0, change: 0.9, status: "good" },
   razonCorriente: { value: 2.34, change: 0.12, status: "good" },
   endeudamiento: { value: 42.5, change: -2.1, status: "good" },
-  rotacionCartera: { value: 8.7, change: 1.3, status: "excellent" },
+  rotacionCartera: { value: 0.6, change: 1.3, status: "excellent" },
   gastosIngresos: { value: 72.0, change: 3.2, status: "warning" },
 }
 
@@ -93,6 +94,14 @@ export function FinancialIndicatorsContent() {
 
       {/* Financial Ratios Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <FinancialRatioCard
+          title="Margen de utilidad neta"
+          value={financialRatios.Rentabilidad.value}
+          unit="%"
+          change={financialRatios.Rentabilidad.change}
+          status={financialRatios.Rentabilidad.status as "good"}
+          icon={<Calculator className="w-5 h-5 text-white" />}
+        />
         <FinancialRatioCard
           title="Razón Corriente"
           value={financialRatios.razonCorriente.value}
@@ -215,11 +224,11 @@ export function FinancialIndicatorsContent() {
           <CardContent className="space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Activo Corriente</span>
-              <span className="font-semibold text-gray-900">€156,800</span>
+              <span className="font-semibold text-gray-900">$156,800</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Pasivo Corriente</span>
-              <span className="font-semibold text-gray-900">€67,000</span>
+              <span className="font-semibold text-gray-900">$67,000</span>
             </div>
             <div className="border-t pt-2">
               <div className="flex justify-between items-center">
@@ -242,11 +251,11 @@ export function FinancialIndicatorsContent() {
           <CardContent className="space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Pasivo Total</span>
-              <span className="font-semibold text-gray-900">€119,000</span>
+              <span className="font-semibold text-gray-900">$119,000</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Activo Total</span>
-              <span className="font-semibold text-gray-900">€280,000</span>
+              <span className="font-semibold text-gray-900">$280,000</span>
             </div>
             <div className="border-t pt-2">
               <div className="flex justify-between items-center">
@@ -269,11 +278,11 @@ export function FinancialIndicatorsContent() {
           <CardContent className="space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Utilidad Neta</span>
-              <span className="font-semibold text-gray-900">€47,000</span>
+              <span className="font-semibold text-gray-900">$47,000</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-600">Ingresos Totales</span>
-              <span className="font-semibold text-gray-900">€168,000</span>
+              <span className="text-sm text-gray-600">Ventas Neta</span>
+              <span className="font-semibold text-gray-900">$168,000</span>
             </div>
             <div className="border-t pt-2">
               <div className="flex justify-between items-center">
@@ -288,7 +297,64 @@ export function FinancialIndicatorsContent() {
             </div>
           </CardContent>
         </Card>
+
+<Card className="bg-white shadow-sm border-0">
+          <CardHeader>
+            <CardTitle className="text-lg font-semibold text-gray-900">Análisis de Eficiencia</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-gray-600">ventas</span>
+              <span className="font-semibold text-gray-900">$168,000</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-gray-600">Cuentas por cobrar</span>
+              <span className="font-semibold text-gray-900">$280,000</span>
+            </div>
+            <div className="border-t pt-2">
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium text-gray-900">Rotación cartera</span>
+                <span className="font-bold text-audit-bright-blue">0.6</span>
+              </div>
+            </div>
+            <div className="bg-blue-50 p-3 rounded-lg">
+              <p className="text-xs text-blue-800">
+                <strong>Bueno:</strong> Nivel de rotación de cartera saludable.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+
+        <Card className="bg-white shadow-sm border-0">
+          <CardHeader>
+            <CardTitle className="text-lg font-semibold text-gray-900">Análisis de Gastos</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-gray-600">Total Gastos</span>
+              <span className="font-semibold text-gray-900">$72,000</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-gray-600">Total Ingresos</span>
+              <span className="font-semibold text-gray-900">$100,000</span>
+            </div>
+            <div className="border-t pt-2">
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium text-gray-900">% gasto sobre ingresos</span>
+                <span className="font-bold text-audit-bright-blue">72</span>
+              </div>
+            </div>
+            <div className="bg-blue-50 p-3 rounded-lg">
+              <p className="text-xs text-blue-800">
+                <strong>Bueno:</strong> Nivel de gastos saludable.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
       </div>
     </div>
   )
 }
+
